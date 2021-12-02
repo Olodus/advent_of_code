@@ -1,5 +1,5 @@
 # Read input
-input←•file.At "../input.txt"
+input←•file.At ⊑ •args
 lines←•FLines input
 
 # Parse array of number strings to numbers
