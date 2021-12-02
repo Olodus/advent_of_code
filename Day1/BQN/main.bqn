@@ -24,3 +24,9 @@ part2v1←NrIncreases(AllThreeSums(numbers))
 part2v2←NrIncreases (+˝⍉3↕numbers)
 •Show "Answer Part 2 v2:"
 •Show part2v2
+
+# Aaaand then I realized I could write NrIncreases shorter as well using Windows
+# So here is probably the final version, which I would say is a true BQN/APL one-liner
+part2v3 ← +´<˝⍉2↕+˝⍉3↕numbers
+•Show "Answer Part 2 v3:"
+•Show part2v3
