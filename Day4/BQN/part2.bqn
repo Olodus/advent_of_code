@@ -1,4 +1,4 @@
-# Part 1
+# Part 2
 ## Input
 #input←•file.At ⊑ •args
 #lines←•FLines input
@@ -36,15 +36,16 @@ victories←⟨0⊏⍉,1⊏⍉,2⊏⍉,3⊏⍉,4⊏⍉,0⊸⊏,1⊸⊏,2⊸⊏,3
 
 DoWhile ← {𝕨{𝕊⍟𝔽𝔾𝕩}𝕩@}´
 bingo←⟨⟩
+last_bingo←⟨⟩
 lucky_number←0
 UpdateMarkers←{𝕨 + lucky_number ⍷ 𝕩}
 T←{5⍷+´𝕏𝕨}
 
-DoWhile {𝕤⋄0=⊑+´bingo}‿{𝕤
+DoWhile {𝕤⋄0<+´0⍷>bingo}‿{𝕤
   # Taking a new lucky number
   lucky_number ↩ ⊏lucky_numbers
-  #•Show "Lucky number:"
-  #•Show lucky_number
+  •Show "Lucky number:"
+  •Show lucky_number
   
   # Marking that if it exists on board
   markers ↩ >{(𝕩⊏markers)UpdateMarkers(𝕩⊏boards)}¨↕≠boards
@@ -52,12 +53,14 @@ DoWhile {𝕤⋄0=⊑+´bingo}‿{𝕤
   #•Show ≢markers
   #•Show markers
   
+  last_bingo↩bingo
   # Checking for bingo
   ### Here we multiply all victory possibilies with a marker.
   ### If any victories are complete then an array will have sum 0,
   ### So after we find 0s we should have one victory array
   bingo↩{+´𝕩⊸T¨victories}¨<˘markers
   #•Show "Updated Bingo"
+  #•Show +´0⍷>bingo
   #•Show bingo
   
   # Updating lucky number array
@@ -66,11 +69,11 @@ DoWhile {𝕤⋄0=⊑+´bingo}‿{𝕤
 •Show "BINGO!"
 #•Show bingo
 
-winning_board_nr ← ⊑ ∾ 1 ⊏ ⊔ ∾≍¨bingo
+winning_board_nr ← ⊑ ∾ 0 ⊏ ⊔ ∾≍¨last_bingo
 
 •Show "Winning number:"
 •Show lucky_number
-•Show "Winning board nr:"
+•Show "Last Winning board nr:"
 •Show winning_board_nr
 •Show "Winning marker:"
 winning_marker←winning_board_nr ⊏ markers
@@ -88,3 +91,4 @@ unmarked_sum←(+´+˝)(¬winning_marker)×winning_board
 score←unmarked_sum×lucky_number
 •Show "Score:"
 •Show score
+
