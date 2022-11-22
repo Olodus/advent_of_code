@@ -17,9 +17,9 @@ bin_arrs ← CharValArr lines
 
 ## Takes either ≤ or ≥ and checks if sum is larger than half of length
 ## This results in either above or below average
-bit_criteria ← {(+´𝕩)𝕎((≠𝕩)÷2)}
-oxygen_criteria ← {≤⊸bitcriteria}
-co2_criteria ← {≥⊸bitcriteria}
+#bit_criteria ← {(+´𝕩)𝕎((≠𝕩)÷2)}
+oxygen_criteria ← {(+´𝕩)≤((≠𝕩)÷2)}
+co2_criteria ← {(+´𝕩)≥((≠𝕩)÷2)}
 
 ## Now we mostly have what we need.
 ## I think what is needed from here is to mapping over bitindex
@@ -45,3 +45,10 @@ co2  ← co2_criteria⊸lsr_filter input
 •Show BinaryToDecimal co2
 •Show "Life Support Rating:"
 •Show (BinaryToDecimal oxygen) × (BinaryToDecimal co2)
+
+CharValArr ← {'0'-˜¨𝕩}
+bin_arrs ← CharValArr ⟨"00100", "11110","11011"⟩
+chose ← ↕≠bin_arrs
+chosen←chose⊏bin_arrs
+bin_cols←⟨≠ chosen,5⟩⥊∾chosen
+bit_criteria←{((≠bin_cols)÷2)≤(+˝bin_cols)}
