@@ -2,7 +2,7 @@
 ## Input
 #input←•file.At ⊑ •args
 #lines←•FLines input
-lines←•FLines ⊑ •args
+lines←•file.Lines ⊑ •args
 
 parseInt←{(10⊸×⊸+˜´∘⌽-⟜'0')}
 #fst←"7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1"
