@@ -50,6 +50,6 @@ unmarked_sum←(+´+˝)marker×board
 •Show unmarked_sum
 
 ## Creating the score
-score←unmarked_sum×⊏current_row
+score←unmarked_sum×lucky_number
 •Show "Score:"
 •Show score
