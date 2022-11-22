@@ -59,10 +59,10 @@ winning_board_nr ← ⊑ ∾ 1 ⊏ ⊔ bingo
 •Show "Winning board nr:"
 •Show winning_board_nr
 •Show "Winning marker:"
-winning_marker←winning_board_nr ⊏ marker
+winning_marker←winning_board_nr ⊏ markers
 •Show winning_marker
 •Show "Winning board:"
-winning_board←winning_board_nr ⊏ board
+winning_board←winning_board_nr ⊏ boards
 •Show winning_board
 
 ## Sum all unmarked on board
