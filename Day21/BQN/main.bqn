@@ -10,19 +10,46 @@ UpdateP2←{
   p2pos↩p2pos⊸TakeStep 𝕩
   p2score↩p2score+p2pos
 }
-While ← {𝕩{𝔽⍟𝔾∘𝔽_𝕣_𝔾∘𝔽⍟𝔾𝕩}𝕨@}´
+While ← {𝕨{𝕊∘𝔾⍟𝔽𝕩}𝕩@}´
+DoWhile ← {𝕨{𝕊⍟𝔽𝔾𝕩}𝕩@}´
 roll← NextThreeRolls 96
 nr_rolls←0
 p1pos←4
 p1score←0
-p2pos←8
+p2pos←10
 p2score←0
 player←1
-winning_score←100
-While ((p1score<winning_score)∧(p2score<winning_score))‿{
+winning_score←1000
+a←0
+
+#While ((p1score<winning_score)∧(p2score<winning_score))‿{
+#DoWhile {𝕤 ⋄ running}‿{s
+While {𝕤⋄((p1score<winning_score)∧(p2score<winning_score))}‿{𝕤
+  #•Show DiceSeed roll
+  #•Show NextThreeRolls DiceSeed roll
   roll↩NextThreeRolls DiceSeed roll
-  nr_rolls↩nr_rolls+1
+  #•Show roll
+  nr_rolls↩nr_rolls+3
   player↩¬player
   player◶⟨UpdateP1,UpdateP2⟩ roll
+  #•Show "Player 1 score:"
+  #•Show p1score
+  #•Show p1pos
+  #•Show "Player 2 score:"
+  #•Show p2score
+  #•Show p2pos
+  #a↩a+1
 }
-¬player◶⟨p1score⊸⋆,p2score⊸⋆⟩ nr_rolls
+•Show "Player 1 score:"
+•Show p1score
+•Show p1pos
+•Show "Player 2 score:"
+•Show p2score
+•Show p2pos
+•Show "Nr rolls:"
+•Show nr_rolls
+•Show "End result:"
+•Show "If P1:"
+•Show nr_rolls⋆p1score
+•Show "If P2:"
+•Show nr_rolls⋆p2score
