@@ -18,7 +18,8 @@ p1score←0
 p2pos←8
 p2score←0
 player←1
-While ((p1score<1000)∨(p2score<1000))‿{
+winning_score←100
+While ((p1score<winning_score)∧(p2score<winning_score))‿{
   roll↩NextThreeRolls DiceSeed roll
   nr_rolls↩nr_rolls+1
   player↩¬player
