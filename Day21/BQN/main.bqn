@@ -11,7 +11,7 @@ UpdateP2←{
   p2score↩p2score+p2pos
 }
 While ← {𝕩{𝔽⍟𝔾∘𝔽_𝕣_𝔾∘𝔽⍟𝔾𝕩}𝕨@}´
-roll← NextThreeRolls 99
+roll← NextThreeRolls 96
 nr_rolls←0
 p1pos←4
 p1score←0
