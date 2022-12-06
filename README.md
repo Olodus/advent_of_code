@@ -1,2 +1,5 @@
-# advent_of_code2021
-My solutions to AoC 2021
+# Advent of Code
+My solutions to AoC for the years:
+
+- 2021
+- 2022
